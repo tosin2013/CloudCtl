@@ -18,7 +18,7 @@ spec:
     - name: HOSTNAME
       value: cloudctl
     - name: WORKDIR
-      value: /root/deploy
+      value: /root/platform
     - name: container
       value: oci
     - name: BUILDAH_ISOLATION
@@ -40,20 +40,20 @@ spec:
       seLinuxOptions: {}
     tty: true
     volumeMounts:
-    - mountPath: /root/deploy:z
+    - mountPath: /root/platform:z
       name: ccio-home
     - mountPath: /root/.ssh/authorized_keys:z
       name: ccio-ssh-authorized-keys
-    workingDir: /root/deploy
+    workingDir: /root/platform
 #   - mountPath: /run/podman/io.podman
 #     name: socket-io.podman
   volumes:
   - hostPath:
-      path: {{ local_home }}/.ccio
+      path: {{ dir_local_home }}/.ccio
       type: Directory
     name: ccio-home
   - hostPath:
-      path: {{ local_home }}/.ssh/authorized_keys
+      path: {{ dir_local_home }}/.ssh/authorized_keys
       type: File
     name: ccio-ssh-authorized-keys
 # - hostPath: # need to add play to configure host unix podman socket

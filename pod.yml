@@ -1,5 +1,5 @@
 #!/usr/local/bin/ansible-playbook --inventory=inventory.yaml
-- name: '{{ ansible_name }} | cloudctl.yml' 
+- name: '{{ ansible_name }} | pod.yml' 
   hosts: cloudctl
   become_user: root
   become: true
